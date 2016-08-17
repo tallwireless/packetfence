@@ -95,6 +95,9 @@ sub join_domain {
     regenerate_configuration();
 
     my $info = $ConfigDomain{$domain};
+    #if (el7) {
+    #    my ($status, $output) = run("/usr/bin/sudo /sbin/ip netns exec $domain /usr/sbin/chroot $chroot_path realm join -U '$info->{bind_dn}%$info->{bind_pass}' --client-software=winbind $domain");
+    #}
     my ($status, $output) = run("/usr/bin/sudo /sbin/ip netns exec $domain /usr/sbin/chroot $chroot_path net ads join -S $info->{ad_server} $info->{dns_name} -s /etc/samba/$domain.conf -U '$info->{bind_dn}%$info->{bind_pass}'");
     $logger->info("domain join : ".$output);
 
