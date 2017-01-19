@@ -93,7 +93,7 @@ sub handle {
         # - sid424242 is the optional PacketFence session ID to track the session when working by session ID and not by URI parameters
         $logger->info("URI '$uri' is detected as an external captive portal URI");
         $uri =~ /\/([^\/]*)/;
-        my $switch_type = $1;
+        $switch_type = $1;
         $switch_type = "pf::Switch::$switch_type";
     } else {
         $switch_type = "pf::Switch::$type_switch";
