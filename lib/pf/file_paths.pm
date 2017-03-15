@@ -94,6 +94,7 @@ our (
     $pffilter_socket_path,
     $control_dir,
     $switch_control_dir,
+    $multi_cluster_conf_dir,
 );
 
 BEGIN {
@@ -162,6 +163,7 @@ BEGIN {
         $pffilter_socket_path
         $control_dir
         $switch_control_dir
+        $multi_cluster_conf_dir
     );
 }
 
@@ -170,6 +172,7 @@ $install_dir = '/usr/local/pf';
 # TODO bug#920 all application config data should use Readonly to avoid accidental post-startup alterration
 $bin_dir  = catdir( $install_dir,"bin" );
 $conf_dir = catdir( $install_dir,"conf" );
+$multi_cluster_conf_dir = catdir( $conf_dir,"multi-cluster" );
 $var_dir  = catdir( $install_dir,"var" );
 $lib_dir  = catdir( $install_dir,"lib" );
 $html_dir = catdir( $install_dir,"html" );
