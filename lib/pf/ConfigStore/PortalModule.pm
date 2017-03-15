@@ -21,7 +21,7 @@ use pf::file_paths qw(
 );
 extends 'pf::ConfigStore';
 
-sub configFile { $portal_modules_config_file};
+has '+configFile' => ( default => $portal_modules_config_file );
 
 sub importConfigFile { $portal_modules_default_config_file }
 

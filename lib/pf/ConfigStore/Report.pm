@@ -18,7 +18,7 @@ use pf::file_paths qw($report_config_file);
 use pf::util;
 extends 'pf::ConfigStore';
 
-sub configFile { $report_config_file };
+has '+configFile' => ( default => $report_config_file );
 
 sub pfconfigNamespace {'config::Report'}
 
